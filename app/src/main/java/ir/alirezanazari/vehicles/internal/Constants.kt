@@ -7,4 +7,7 @@ object Constants {
         const val BASE_URL = "https://snapp.ir/assets/"
     }
 
+    object DB{
+        const val VEHICLE_TABLE = "tbl_vehicle"
+    }
 }
