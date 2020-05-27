@@ -6,7 +6,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import ir.alirezanazari.vehicles.data.db.entity.VehicleEntity
 import ir.alirezanazari.vehicles.internal.Constants.DB.VEHICLE_TABLE
-import kotlinx.coroutines.Deferred
 
 @Dao
 interface VehicleDao {
