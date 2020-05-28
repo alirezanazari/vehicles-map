@@ -11,11 +11,11 @@ import ir.alirezanazari.vehicles.internal.Constants.DB.VEHICLE_TABLE
 interface VehicleDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(vehicles: List<VehicleEntity>)
+    suspend fun insert(vehicles: VehicleEntity)
 
     @Query("select * from $VEHICLE_TABLE")
     suspend fun getVehicles(): List<VehicleEntity>
 
     @Query("delete from $VEHICLE_TABLE")
-    suspend fun deleteAll()
+    suspend fun clear()
 }

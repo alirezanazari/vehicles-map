@@ -15,22 +15,36 @@ class VehicleRepositoryImpl(
         val netResponse = net.fetchVehiclesList()
 
         if (netResponse == null) {
-            val dbResponse = db.getVehicles().map(::transformVehicles)
+            val dbResponse = db.getVehicles().map(::transformToVehicles)
             if (dbResponse.isNotEmpty()) return dbResponse
         } else {
+            db.clear()
+            netResponse.forEach { insertVehiclesToDb(it) }
             return netResponse
         }
 
         return null
     }
 
-    private fun transformVehicles(vehicle: VehicleEntity): Vehicle {
+    private fun transformToVehicles(vehicle: VehicleEntity): Vehicle {
         return Vehicle(
             vehicle.type,
             vehicle.lat,
             vehicle.lng,
             vehicle.bearing,
             vehicle.image
+        )
+    }
+
+    private suspend fun insertVehiclesToDb(vehicle: Vehicle) {
+        db.insert(
+            VehicleEntity(
+                vehicle.type,
+                vehicle.lat,
+                vehicle.lng,
+                vehicle.bearing,
+                vehicle.imageUrl
+            )
         )
     }
 
