@@ -1,13 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.list.VehicleListFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/colorPrimary"
+        android:gravity="left|center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:text="@string/app_name"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/toolbar_textSize"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnMap"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/toolbar_height"
+        android:layout_margin="6dp"
+        app:backgroundTint="@color/colorAccent"
+        android:text="@string/show_on_map"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@id/rvVehicles"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintWidth_percent=".6" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvVehicles"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnMap" />
+
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/rvVehicles"
+        app:layout_constraintEnd_toEndOf="@id/rvVehicles"
+        app:layout_constraintStart_toStartOf="@id/rvVehicles"
+        app:layout_constraintTop_toTopOf="@id/rvVehicles" />
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/no_item"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/standard_textSize"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/rvVehicles"
+        app:layout_constraintStart_toStartOf="@id/rvVehicles"
+        app:layout_constraintTop_toBottomOf="@id/btnRetry" />
+
+    <ImageView
+        android:id="@+id/btnRetry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/rvVehicles"
+        app:layout_constraintEnd_toEndOf="@id/rvVehicles"
+        app:layout_constraintStart_toStartOf="@id/rvVehicles"
+        app:layout_constraintTop_toTopOf="@id/rvVehicles"
+        app:srcCompat="@drawable/ic_retry" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

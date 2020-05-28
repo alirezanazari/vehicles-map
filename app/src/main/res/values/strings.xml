@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Vehicles</string>
+    <string name="no_item">No Item.</string>
+    <string name="show_on_map">Show On Map</string>
 </resources>
