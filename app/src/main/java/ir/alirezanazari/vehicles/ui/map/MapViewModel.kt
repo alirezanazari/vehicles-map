@@ -1,7 +1,7 @@
 package ir.alirezanazari.vehicles.ui.map
 
-import androidx.lifecycle.ViewModel
+import ir.alirezanazari.vehicles.ui.BaseViewModel
 
-class MapViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class MapViewModel : BaseViewModel() {
+
 }

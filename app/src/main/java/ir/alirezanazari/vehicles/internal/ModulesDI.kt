@@ -8,6 +8,7 @@ import ir.alirezanazari.vehicles.data.repository.VehicleRepository
 import ir.alirezanazari.vehicles.data.repository.VehicleRepositoryImpl
 import ir.alirezanazari.vehicles.ui.list.VehicleListViewModel
 import ir.alirezanazari.vehicles.ui.list.VehiclesAdapter
+import ir.alirezanazari.vehicles.ui.map.MapViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -23,4 +24,5 @@ val appModules = module {
     factory { VehiclesAdapter(get()) }
 
     viewModel { VehicleListViewModel(get()) }
+    viewModel { MapViewModel() }
 }

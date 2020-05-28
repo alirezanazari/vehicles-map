@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import ir.alirezanazari.vehicles.R
-import ir.alirezanazari.vehicles.internal.Logger
+import ir.alirezanazari.vehicles.internal.Navigator
 import ir.alirezanazari.vehicles.ui.BaseFragment
 import kotlinx.android.synthetic.main.vehicle_list_fragment.*
 import org.koin.android.ext.android.inject
@@ -38,6 +38,10 @@ class VehicleListFragment : BaseFragment() {
     }
 
     private fun setupListeners() {
+        btnMap.setOnClickListener {
+            Navigator.openMap(activity?.supportFragmentManager)
+        }
+
         viewModel.vehiclesResponse.observe(viewLifecycleOwner, Observer { items ->
             items?.let {
                 vehiclesAdapter.setItems(it)
