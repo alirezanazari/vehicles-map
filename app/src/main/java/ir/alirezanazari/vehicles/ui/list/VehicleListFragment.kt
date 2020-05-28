@@ -1,7 +1,6 @@
 package ir.alirezanazari.vehicles.ui.list
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,6 +50,7 @@ class VehicleListFragment : BaseFragment() {
         viewModel.loaderVisibilityListener.observe(viewLifecycleOwner, Observer {
             it?.let { state ->
                 pbLoading.visibility = if (state) View.VISIBLE else View.GONE
+                btnMap.visibility = if (state) View.GONE else View.VISIBLE
             }
         })
 
@@ -63,7 +63,6 @@ class VehicleListFragment : BaseFragment() {
                 } else {
                     tvError.visibility = View.GONE
                     btnRetry.visibility = View.GONE
-                    btnMap.visibility = View.VISIBLE
                 }
             }
         })

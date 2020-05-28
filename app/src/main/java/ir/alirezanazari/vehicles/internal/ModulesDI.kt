@@ -24,5 +24,5 @@ val appModules = module {
     factory { VehiclesAdapter(get()) }
 
     viewModel { VehicleListViewModel(get()) }
-    viewModel { MapViewModel() }
+    viewModel { MapViewModel(get<VehiclesDatabase>().getVehicleDao()) }
 }
