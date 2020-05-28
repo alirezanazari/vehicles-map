@@ -37,6 +37,10 @@ class VehicleListFragment : BaseFragment() {
     }
 
     private fun setupListeners() {
+        btnRetry.setOnClickListener {
+            viewModel.getVehiclesList()
+        }
+
         btnMap.setOnClickListener {
             Navigator.openMap(activity?.supportFragmentManager)
         }
