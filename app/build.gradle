@@ -71,6 +71,11 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.lifecycle_version"
 
+    // Map
+    implementation "com.google.android.gms:play-services-maps:$rootProject.googlePlay_version"
+    implementation "com.google.android.gms:play-services-location:$rootProject.googlePlay_version"
+
+
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
