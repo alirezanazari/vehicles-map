@@ -77,8 +77,11 @@ dependencies {
     implementation "com.google.android.gms:play-services-maps:$rootProject.googlePlay_version"
     implementation "com.google.android.gms:play-services-location:$rootProject.googlePlay_version"
 
+    androidTestImplementation "androidx.test.ext:junit:1.1.1"
+    androidTestImplementation "androidx.test:rules:1.2.0"
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
 
-    testImplementation 'junit:junit:4.13'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    testImplementation "junit:junit:4.13"
+    testImplementation("androidx.test:core:1.2.0")
+
 }
