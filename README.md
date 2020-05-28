@@ -1,5 +1,5 @@
 # vehicles-map
-Android project showing vehicles on map </br>
+Android project showing vehicles on list and map </br>
 Used <b>Kotlin , MVVM , Google Map, Coroutines, LiveData, Retrofit , Glide , Koin(DI) and Room </b>
 
 # APK
